@@ -243,12 +243,12 @@ Authのメール/パスワードを有効に
 <script>
   // Initialize Firebase
   var config = {
-    apiKey: "AIzaSyDLWjPG-DW2DsQo1rg-8vNNmdzqipwVCWU",
-    authDomain: "miraiblog-kght6123.firebaseapp.com",
-    databaseURL: "https://miraiblog-kght6123.firebaseio.com",
-    projectId: "miraiblog-kght6123",
-    storageBucket: "miraiblog-kght6123.appspot.com",
-    messagingSenderId: "178147050126"
+    apiKey: "*****",
+    authDomain: "*****",
+    databaseURL: "*****",
+    projectId: "*****",
+    storageBucket: "*****",
+    messagingSenderId: "*****"
   };
   firebase.initializeApp(config);
 </script>
@@ -268,12 +268,12 @@ import firebase from 'firebase'
 Vue.config.productionTip = false
 
 const config = {
-  apiKey: 'AIzaSyDLWjPG-DW2DsQo1rg-8vNNmdzqipwVCWU',
-  authDomain: 'miraiblog-kght6123.firebaseapp.com',
-  databaseURL: 'miraiblog-kght6123.firebaseio.com',
-  projectId: 'miraiblog-kght6123',
-  storageBucket: 'miraiblog-kght6123.appspot.com',
-  messagingSenderId: '178147050126'
+  apiKey: '**********',
+  authDomain: '**********',
+  databaseURL: '**********',
+  projectId: '**********',
+  storageBucket: '**********',
+  messagingSenderId: '**********'
 }
 firebase.initializeApp(config)
 ```

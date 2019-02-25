@@ -9,12 +9,12 @@ import './registerServiceWorker'
 import firebase from 'firebase'
 
 const config = {
-  apiKey: process.env.VUE_FB_API_KEY,//'AIzaSyDLWjPG-DW2DsQo1rg-8vNNmdzqipwVCWU',
-  authDomain: process.env.VUE_FB_AUTH_DOMAIN,//'miraiblog-kght6123.firebaseapp.com',
-  databaseURL: process.env.VUE_FB_DB_URL,//'miraiblog-kght6123.firebaseio.com',
-  projectId: process.env.VUE_FB_PROJECT_ID,//'miraiblog-kght6123',
-  storageBucket: process.env.VUE_FB_STORAGE_BUCKET,//'miraiblog-kght6123.appspot.com',
-  messagingSenderId: process.env.VUE_FB_MSG_SENDER_ID,//'178147050126'
+  apiKey: process.env.VUE_FB_API_KEY,
+  authDomain: process.env.VUE_FB_AUTH_DOMAIN,
+  databaseURL: process.env.VUE_FB_DB_URL,
+  projectId: process.env.VUE_FB_PROJECT_ID,
+  storageBucket: process.env.VUE_FB_STORAGE_BUCKET,
+  messagingSenderId: process.env.VUE_FB_MSG_SENDER_ID,
 }
 firebase.initializeApp(config)
 

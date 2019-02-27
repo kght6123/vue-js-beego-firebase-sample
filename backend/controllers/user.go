@@ -1,8 +1,9 @@
 package controllers
 
 import (
-	"github.com/kght6123/MiraiBlog/backend/models"
 	"encoding/json"
+
+	"github.com/kght6123/MiraiNotes2/backend/models"
 
 	"github.com/astaxie/beego"
 )
@@ -116,4 +117,3 @@ func (u *UserController) Logout() {
 	u.Data["json"] = "logout success"
 	u.ServeJSON()
 }
-

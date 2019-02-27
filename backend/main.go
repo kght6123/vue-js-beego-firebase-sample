@@ -1,7 +1,7 @@
 package main
 
 import (
-	_ "github.com/kght6123/MiraiBlog/backend/routers"
+	_ "github.com/kght6123/MiraiNotes2/backend/routers"
 
 	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/plugins/cors"

@@ -1,28 +1,18 @@
 <template>
   <div class="hello">
-    <h1>{{ msg }}{{ apiMsg }}</h1>
-    <h2>API Links</h2>
-    <button @click="apiPublic">public</button>
-    <button @click="apiPrivate">private</button>
-    <button @click="test">test</button>
+    <h1>{{ msg }} Hello {{ name }}!!</h1>
+    <h2>{{ apiMsg }}</h2>
+    <h3>API Links</h3>
+    <button @click="signOut">Sign out</button>
+    <button @click="apiPublic">Public API</button>
+    <button @click="apiPrivate">Private API</button>
+    <button @click="test">Test env</button>
   </div>
 </template>
 
 <script>
 import axios from 'axios'
-// import axiosBase from 'axios'
-
-// const axios = axiosBase.create({
-//   baseURL: 'http://127.0.0.1:8080',
-//   headers: {
-//     //'Content-Type': 'application/json',
-//     //'X-Requested-With': 'XMLHttpRequest',
-//     //'Access-Control-Allow-Origin': '*',
-//     'Accept': 'application/json'
-//   },
-//   //responseType: 'json',
-//   //credentials: false,
-// });
+import firebase from 'firebase'
 
 export default {
   name: 'HelloWorld',
@@ -31,33 +21,18 @@ export default {
   },
   data () {
     return {
-      apiMsg: 'API Message'
+      apiMsg: 'API Message',
+      name: firebase.auth().currentUser ? firebase.auth().currentUser.email : ""
     }
   },
   methods: {
+    signOut: function () {
+      firebase.auth().signOut().then(() => {
+        localStorage.removeItem('jwt')
+        this.$router.push('/signin')
+      })
+    },
     apiPublic: async function () {
-//       axios.get('/v1/object/', {
-//   //withCredentials: true,
-//   headers: {
-//     //'Content-Type': 'application/json',
-//     //'X-Requested-With': 'XMLHttpRequest',
-//     //'Access-Control-Allow-Origin': '*',
-//     'Accept': 'application/json'
-//   },
-//   //responseType: 'json',
-//   //credentials: false,
-// })
-//         .then(function (response) {
-//           // handle success
-//           alert(response);
-//         })
-//         .catch(function (error) {
-//           // handle error
-//           alert(error);
-//         })
-//         .then(function () {
-//           // always executed
-//         });
       let res = await axios.get('/v1/object/')
       this.apiMsg = res.data
     },
@@ -67,6 +42,7 @@ export default {
     },
     test: function () {
       alert(process.env.VUE_APP_NAME) // test env
+      alert(process.env.VUE_APP_FB_API_KEY)
     }
   }
 }

@@ -31,7 +31,7 @@ go version go1.11.5 darwin/amd64
 # 環境変数の確認
 $ echo $GOPATH
 /Users/kogahirotaka/.gvm/pkgsets/go1.11.5/global
-# $GOPATH/src/github.com/kght6123/MiraiBlog にプロジェクトを作る見込みで進める
+# $GOPATH/src/github.com/kght6123/MiraiNotes2 にプロジェクトを作る見込みで進める
 
 $ echo $PATH
 /Users/kogahirotaka/.gvm/pkgsets/go1.11.5/global/bin:/Users/kogahirotaka/.gvm/gos/go1.11.5/bin:/Users/kogahirotaka/.gvm/pkgsets/go1.11.5/global/overlay/bin:/Users/kogahirotaka/.gvm/bin
@@ -57,9 +57,9 @@ $ go get github.com/astaxie/beego
 $ go get github.com/beego/bee
 
 # Beeプロジェクトを初期化
-# bee new github.com/kght6123/MiraiBlog/backend
+# bee new github.com/kght6123/MiraiNotes2/backend
 # bee api [appname] [-tables=""] [-driver=mysql] [-conn=root:@tcp(127.0.0.1:3306)/test]
-$ bee api github.com/kght6123/MiraiBlog/backend
+$ bee api github.com/kght6123/MiraiNotes2/backend
 
 # Beeを起動
 $ bee run
@@ -157,13 +157,13 @@ yarn global remove vue-cli
 yarn global add @vue/cli
 
 # ディレクトリ作成
-mkdir -p $GOPATH/src/github.com/kght6123/MiraiBlog cd $GOPATH/src/github.com/kght6123/MiraiBlog
+mkdir -p $GOPATH/src/github.com/kght6123/MiraiNotes2 cd $GOPATH/src/github.com/kght6123/MiraiNotes2
 
 # 新しいプロジェクトを作成 Manuallyを選択 -> aキーで全て選択(TypeScriptだけ無効に) -> 基本的にYes -> Stylus -> ESLint -> Lint on Save -> Mocha + Chai -> Nightwatch -> In package.json -> No -> Use Yarn
-vue create miraiblog-frontend
+vue create mirainotes2-frontend
 
 # リネーム
-mv miraiblog-frontend frontend
+mv mirainotes2-frontend frontend
 rm -R frontend/.git # デフォルトのgitを削除
 
 # 追加パッケージ
@@ -192,7 +192,7 @@ yarn run serve
 `frontend/.env`と`frontend/.env.production`、`frontend/.env.development`を作成
 
 ```ini:.env
-VUE_APP_NAME=MiraiBlog
+VUE_APP_NAME=MiraiNotes2
 ```
 
 ## Vue-cliのProxyを設定
@@ -227,8 +227,8 @@ https://console.firebase.google.com/u/0/project/_/overview
 
 プロジェクトの追加
 
-プロジェクト名：MiraiBlog
-プロジェクトID：miraiblog-kght6123
+プロジェクト名：MiraiNotes2
+プロジェクトID：mirainotes2-kght6123
 アナリティクスの地域：日本
 Cloudのロケーション：nam5
 
@@ -276,4 +276,63 @@ const config = {
   messagingSenderId: '**********'
 }
 firebase.initializeApp(config)
+```
+
+## CORSの設定を試行錯誤した、、、時のメモ
+
+結局、webpack-dev-serverのproxy設定で解決した（`frontend/vue.config.dev.js`）
+
+```js
+import axiosBase from 'axios'
+const axios = axiosBase.create({
+  baseURL: 'http://127.0.0.1:8080',
+  headers: {
+    //'Content-Type': 'application/json',
+    //'X-Requested-With': 'XMLHttpRequest',
+    //'Access-Control-Allow-Origin': '*',
+    'Accept': 'application/json'
+  },
+  //responseType: 'json',
+  //credentials: false,
+});
+```
+
+```js
+axios.get('/v1/object/', {
+	//withCredentials: true,
+	headers: {
+		//'Content-Type': 'application/json',
+		//'X-Requested-With': 'XMLHttpRequest',
+		//'Access-Control-Allow-Origin': '*',
+		'Accept': 'application/json'
+	},
+	//responseType: 'json',
+	//credentials: false,
+})
+.then(function (response) {
+	// handle success
+	alert(response);
+})
+.catch(function (error) {
+	// handle error
+	alert(error);
+})
+.then(function () {
+	// always executed
+});
+```
+
+```go
+// CORS for https://foo.* origins, allowing:
+// - PUT and PATCH methods
+// - Origin header
+// - Credentials share
+// https://qiita.com/tomoyukilabs/items/81698edd5812ff6acb34
+beego.InsertFilter("*", beego.BeforeRouter, cors.Allow(&cors.Options{
+	AllowOrigins:     []string{"*"},
+	AllowMethods:     []string{"GET", "PUT", "POST", "DELETE", "HEAD", "PATCH", "OPTIONS"},
+	AllowHeaders:     []string{"Origin, X-Requested-With, Content-Type, Accept, Authorization"},
+	ExposeHeaders:    []string{"Content-Length"},
+	AllowCredentials: true,
+}))
 ```

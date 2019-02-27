@@ -1,8 +1,9 @@
 package controllers
 
 import (
-	"github.com/kght6123/MiraiBlog/backend/models"
 	"encoding/json"
+
+	"github.com/kght6123/MiraiNotes2/backend/models"
 
 	"github.com/astaxie/beego"
 )
@@ -89,4 +90,3 @@ func (o *ObjectController) Delete() {
 	o.Data["json"] = "delete success!"
 	o.ServeJSON()
 }
-

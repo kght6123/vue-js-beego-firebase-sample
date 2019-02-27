@@ -7,7 +7,7 @@ import (
 
 func init() {
 
-    beego.GlobalControllerRouter["github.com/kght6123/MiraiBlog/backend/controllers:ObjectController"] = append(beego.GlobalControllerRouter["github.com/kght6123/MiraiBlog/backend/controllers:ObjectController"],
+    beego.GlobalControllerRouter["github.com/kght6123/MiraiNotes2/backend/controllers:ObjectController"] = append(beego.GlobalControllerRouter["github.com/kght6123/MiraiNotes2/backend/controllers:ObjectController"],
         beego.ControllerComments{
             Method: "Post",
             Router: `/`,
@@ -16,7 +16,7 @@ func init() {
             Filters: nil,
             Params: nil})
 
-    beego.GlobalControllerRouter["github.com/kght6123/MiraiBlog/backend/controllers:ObjectController"] = append(beego.GlobalControllerRouter["github.com/kght6123/MiraiBlog/backend/controllers:ObjectController"],
+    beego.GlobalControllerRouter["github.com/kght6123/MiraiNotes2/backend/controllers:ObjectController"] = append(beego.GlobalControllerRouter["github.com/kght6123/MiraiNotes2/backend/controllers:ObjectController"],
         beego.ControllerComments{
             Method: "GetAll",
             Router: `/`,
@@ -25,7 +25,7 @@ func init() {
             Filters: nil,
             Params: nil})
 
-    beego.GlobalControllerRouter["github.com/kght6123/MiraiBlog/backend/controllers:ObjectController"] = append(beego.GlobalControllerRouter["github.com/kght6123/MiraiBlog/backend/controllers:ObjectController"],
+    beego.GlobalControllerRouter["github.com/kght6123/MiraiNotes2/backend/controllers:ObjectController"] = append(beego.GlobalControllerRouter["github.com/kght6123/MiraiNotes2/backend/controllers:ObjectController"],
         beego.ControllerComments{
             Method: "Get",
             Router: `/:objectId`,
@@ -34,7 +34,7 @@ func init() {
             Filters: nil,
             Params: nil})
 
-    beego.GlobalControllerRouter["github.com/kght6123/MiraiBlog/backend/controllers:ObjectController"] = append(beego.GlobalControllerRouter["github.com/kght6123/MiraiBlog/backend/controllers:ObjectController"],
+    beego.GlobalControllerRouter["github.com/kght6123/MiraiNotes2/backend/controllers:ObjectController"] = append(beego.GlobalControllerRouter["github.com/kght6123/MiraiNotes2/backend/controllers:ObjectController"],
         beego.ControllerComments{
             Method: "Put",
             Router: `/:objectId`,
@@ -43,7 +43,7 @@ func init() {
             Filters: nil,
             Params: nil})
 
-    beego.GlobalControllerRouter["github.com/kght6123/MiraiBlog/backend/controllers:ObjectController"] = append(beego.GlobalControllerRouter["github.com/kght6123/MiraiBlog/backend/controllers:ObjectController"],
+    beego.GlobalControllerRouter["github.com/kght6123/MiraiNotes2/backend/controllers:ObjectController"] = append(beego.GlobalControllerRouter["github.com/kght6123/MiraiNotes2/backend/controllers:ObjectController"],
         beego.ControllerComments{
             Method: "Delete",
             Router: `/:objectId`,
@@ -52,7 +52,7 @@ func init() {
             Filters: nil,
             Params: nil})
 
-    beego.GlobalControllerRouter["github.com/kght6123/MiraiBlog/backend/controllers:UserController"] = append(beego.GlobalControllerRouter["github.com/kght6123/MiraiBlog/backend/controllers:UserController"],
+    beego.GlobalControllerRouter["github.com/kght6123/MiraiNotes2/backend/controllers:UserController"] = append(beego.GlobalControllerRouter["github.com/kght6123/MiraiNotes2/backend/controllers:UserController"],
         beego.ControllerComments{
             Method: "Post",
             Router: `/`,
@@ -61,7 +61,7 @@ func init() {
             Filters: nil,
             Params: nil})
 
-    beego.GlobalControllerRouter["github.com/kght6123/MiraiBlog/backend/controllers:UserController"] = append(beego.GlobalControllerRouter["github.com/kght6123/MiraiBlog/backend/controllers:UserController"],
+    beego.GlobalControllerRouter["github.com/kght6123/MiraiNotes2/backend/controllers:UserController"] = append(beego.GlobalControllerRouter["github.com/kght6123/MiraiNotes2/backend/controllers:UserController"],
         beego.ControllerComments{
             Method: "GetAll",
             Router: `/`,
@@ -70,7 +70,7 @@ func init() {
             Filters: nil,
             Params: nil})
 
-    beego.GlobalControllerRouter["github.com/kght6123/MiraiBlog/backend/controllers:UserController"] = append(beego.GlobalControllerRouter["github.com/kght6123/MiraiBlog/backend/controllers:UserController"],
+    beego.GlobalControllerRouter["github.com/kght6123/MiraiNotes2/backend/controllers:UserController"] = append(beego.GlobalControllerRouter["github.com/kght6123/MiraiNotes2/backend/controllers:UserController"],
         beego.ControllerComments{
             Method: "Get",
             Router: `/:uid`,
@@ -79,7 +79,7 @@ func init() {
             Filters: nil,
             Params: nil})
 
-    beego.GlobalControllerRouter["github.com/kght6123/MiraiBlog/backend/controllers:UserController"] = append(beego.GlobalControllerRouter["github.com/kght6123/MiraiBlog/backend/controllers:UserController"],
+    beego.GlobalControllerRouter["github.com/kght6123/MiraiNotes2/backend/controllers:UserController"] = append(beego.GlobalControllerRouter["github.com/kght6123/MiraiNotes2/backend/controllers:UserController"],
         beego.ControllerComments{
             Method: "Put",
             Router: `/:uid`,
@@ -88,7 +88,7 @@ func init() {
             Filters: nil,
             Params: nil})
 
-    beego.GlobalControllerRouter["github.com/kght6123/MiraiBlog/backend/controllers:UserController"] = append(beego.GlobalControllerRouter["github.com/kght6123/MiraiBlog/backend/controllers:UserController"],
+    beego.GlobalControllerRouter["github.com/kght6123/MiraiNotes2/backend/controllers:UserController"] = append(beego.GlobalControllerRouter["github.com/kght6123/MiraiNotes2/backend/controllers:UserController"],
         beego.ControllerComments{
             Method: "Delete",
             Router: `/:uid`,
@@ -97,7 +97,7 @@ func init() {
             Filters: nil,
             Params: nil})
 
-    beego.GlobalControllerRouter["github.com/kght6123/MiraiBlog/backend/controllers:UserController"] = append(beego.GlobalControllerRouter["github.com/kght6123/MiraiBlog/backend/controllers:UserController"],
+    beego.GlobalControllerRouter["github.com/kght6123/MiraiNotes2/backend/controllers:UserController"] = append(beego.GlobalControllerRouter["github.com/kght6123/MiraiNotes2/backend/controllers:UserController"],
         beego.ControllerComments{
             Method: "Login",
             Router: `/login`,
@@ -106,7 +106,7 @@ func init() {
             Filters: nil,
             Params: nil})
 
-    beego.GlobalControllerRouter["github.com/kght6123/MiraiBlog/backend/controllers:UserController"] = append(beego.GlobalControllerRouter["github.com/kght6123/MiraiBlog/backend/controllers:UserController"],
+    beego.GlobalControllerRouter["github.com/kght6123/MiraiNotes2/backend/controllers:UserController"] = append(beego.GlobalControllerRouter["github.com/kght6123/MiraiNotes2/backend/controllers:UserController"],
         beego.ControllerComments{
             Method: "Logout",
             Router: `/logout`,

@@ -8,7 +8,7 @@
 package routers
 
 import (
-	"github.com/kght6123/MiraiBlog/backend/controllers"
+	"github.com/kght6123/MiraiNotes2/backend/controllers"
 
 	"github.com/astaxie/beego"
 )

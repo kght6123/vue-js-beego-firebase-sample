@@ -21,6 +21,7 @@ func init() {
 			),
 		),
 		beego.NSNamespace("/user",
+			beego.NSBefore(controllers.Auth), // https://beego.me/docs/mvc/controller/router.md#namespace
 			beego.NSInclude(
 				&controllers.UserController{},
 			),

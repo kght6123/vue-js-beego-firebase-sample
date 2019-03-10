@@ -23,10 +23,17 @@ export default {
   methods: {
     signIn: function () {
       firebase.auth().signInWithEmailAndPassword(this.email, this.password).then(res => {
-        localStorage.setItem('jwt', res.user.qa)
+        // https://firebase.google.com/docs/auth/admin/verify-id-tokens?hl=ja
+        /*firebase.auth().currentUser*/res.user.getIdToken(/* forceRefresh */ true).then(function(idToken) {
+          // Send token to your backend via HTTPS
+          localStorage.setItem('jwt', idToken)
+        }).catch(function(error) {
+          // Handle error
+          alert('get id token error message: ' + error.message)
+        });
         this.$router.push('/')
       }, error => {
-        alert('Error message: ' + error.message)
+        alert('auth error message: ' + error.message)
       })
     }
   }

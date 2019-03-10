@@ -168,6 +168,10 @@ rm -R frontend/.git # デフォルトのgitを削除
 
 # 追加パッケージ
 yarn add axios
+yarn add markdown-it
+yarn add highlight.js
+
+yarn add markdown-it-emoji
 ```
 
 下記のコマンドでdevサーバを起動

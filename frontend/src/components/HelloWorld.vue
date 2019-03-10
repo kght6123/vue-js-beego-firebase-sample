@@ -7,12 +7,14 @@
     <button @click="apiPublic">Public API</button>
     <button @click="apiPrivate">Private API</button>
     <button @click="test">Test env</button>
+    <div v-html="markdownHtml()"></div>
   </div>
 </template>
 
 <script>
 import axios from 'axios'
 import firebase from 'firebase'
+import MarkdownIt from 'markdown-it'
 
 export default {
   name: 'HelloWorld',
@@ -22,7 +24,8 @@ export default {
   data () {
     return {
       apiMsg: 'API Message',
-      name: firebase.auth().currentUser ? firebase.auth().currentUser.email : ""
+      name: firebase.auth().currentUser ? firebase.auth().currentUser.email : "",
+      markdownText: '# markdown-it rulezz!',
     }
   },
   methods: {
@@ -43,6 +46,10 @@ export default {
     test: function () {
       alert(process.env.VUE_APP_NAME) // test env
       alert(process.env.VUE_APP_FB_API_KEY)
+    },
+    markdownHtml: function() {
+      const md = new MarkdownIt()
+      return md.render(this.markdownText)
     }
   }
 }

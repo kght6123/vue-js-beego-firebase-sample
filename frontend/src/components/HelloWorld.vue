@@ -7,6 +7,10 @@
     <button @click="apiPublic">Public API</button>
     <button @click="apiPrivate">Private API</button>
     <button @click="test">Test env</button>
+    <!-- markdown area -->
+    <div>
+      <textarea v-model="markdownText" placeholder="please input markdown text."></textarea>
+    </div>
     <div v-html="markdownHtml()"></div>
   </div>
 </template>
